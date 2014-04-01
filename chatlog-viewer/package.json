@@ -1,0 +1,30 @@
+{
+  "author": "Chun-hao Hu <hu.chunhao@gmail.com> (http://blog.huchunhao.com)",
+  "name": "mongo-express",
+  "description": "Web-based admin interface for MongoDB",
+  "version": "0.18.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andzdroid/mongo-express.git"
+  },
+  "dependencies": {
+    "express": "3.0.0",
+    "mongodb": "0.9.9-8",
+    "consolidate":">= 0.4.0",
+    "swig": "0.12.x",
+    "underscore": "1.3.x",
+    "async": "0.1.x"
+  },
+  "devDependencies": {
+    "mocha": "1.0.x",
+    "chai": "0.5.x",
+    "coffee-script": "1.3.x"
+  },
+  "engine": "node >= 0.6",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app",
+    "test": "./node_modules/.bin/mocha"
+  },
+  "main": "./app"
+}

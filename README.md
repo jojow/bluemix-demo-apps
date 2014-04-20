@@ -17,7 +17,7 @@ Applications need to retrieve certain context information from environment varia
 Please find below a simple code snippet to be used for applications based on node.js:
 
     // Get port
-    var port = process.env.VCAP_APP_PORT
+    var port = process.env.VCAP_APP_PORT;
 
     // Get credentials to access mongo database service
     var services = JSON.parse(process.env.VCAP_SERVICES);
@@ -64,3 +64,9 @@ Similar to the deployment of the chat application, run the following commands to
     cf restart mychatlogs
 
 Go to http://mychatlogs.ng.bluemix.net to access the chat logs. :-)
+
+
+
+## Node.js Hackathon Starter
+
+As a starting point to create your own node.js application we recommend to check out [Node.js Hackathon Starter](https://github.com/sahat/hackathon-starter). Have fun!

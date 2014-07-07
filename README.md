@@ -30,7 +30,7 @@ Please find below a simple code snippet to be used for applications based on nod
 
 Simple chat application based on node.js that logs all conversations in a mongo database.
 
-First, create a BlueMix account at http://www.bluemix.net. Second, [install the `cf` command-line tool and connect it to BlueMix](http://www.ng.bluemix.net/docs/BuildingWeb.jsp#install-cf) using your BlueMix account. Then, run the following commands:
+First, create a BlueMix account at http://www.bluemix.net. Second, [install the `cf` command-line tool and connect it to BlueMix](https://www.ng.bluemix.net/docs/#starters/BuildingWeb.html#install_cf) using your BlueMix account. Then, run the following commands:
 
     git clone https://github.com/jojow/bluemix-demo-apps.git
     cd bluemix-demo-apps/chat
@@ -48,7 +48,7 @@ Restart the application to refresh all environment variables for the application
 
     cf restart mychatapp
 
-Go to http://mychatapp.ng.bluemix.net to access the chat application. :-)
+Go to http://mychatapp.mybluemix.net to access the chat application. :-)
 
 
 
@@ -63,7 +63,7 @@ Similar to the deployment of the chat application, run the following commands to
     cf bind-service mychatlogs chatlogdb
     cf restart mychatlogs
 
-Go to http://mychatlogs.ng.bluemix.net to access the chat logs. :-)
+Go to http://mychatlogs.mybluemix.net to access the chat logs. :-)
 
 
 

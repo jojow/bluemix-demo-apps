@@ -37,7 +37,7 @@ First, create a Bluemix account at http://www.bluemix.net. Second, [install the 
 
 Of course, you can use a different name for your application instead of "mychatapp". Now, use the `cf create-service SERVICE PLAN SERVICE_NAME` command to create a mongo database service:
 
-cf create-service mongolab sandbox chatlogdb
+    cf create-service mongolab sandbox chatlogdb
 
 Use the `cf bind-service APP_NAME SERVICE_NAME` command to bind the service to the application:
 

@@ -1,6 +1,6 @@
-# BlueMix Demo Apps
+# Bluemix Demo Apps
 
-Some demo apps to get started with [IBM BlueMix](http://www.bluemix.net):
+Some demo apps to get started with [IBM Bluemix](http://www.bluemix.net):
 
 * Chat App
 * Chat Log Viewer
@@ -21,8 +21,7 @@ Please find below a simple code snippet to be used for applications based on nod
 
     // Get credentials to access mongo database service
     var services = JSON.parse(process.env.VCAP_SERVICES);
-    var mongoCred = services['mongodb-2.2'][0].credentials;
-    var mongoAddress = mongoCred.url;
+    var mongoAddress = services.mongolab[0].credentials.uri;
 
 
 
@@ -30,15 +29,15 @@ Please find below a simple code snippet to be used for applications based on nod
 
 Simple chat application based on node.js that logs all conversations in a mongo database.
 
-First, create a BlueMix account at http://www.bluemix.net. Second, [install the `cf` command-line tool and connect it to BlueMix](https://www.ng.bluemix.net/docs/#starters/BuildingWeb.html#install_cf) using your BlueMix account. Then, run the following commands:
+First, create a Bluemix account at http://www.bluemix.net. Second, [install the `cf` command-line tool and connect it to Bluemix](https://www.ng.bluemix.net/docs/#starters/BuildingWeb.html#install_cf) using your Bluemix account. Then, run the following commands:
 
     git clone https://github.com/jojow/bluemix-demo-apps.git
     cd bluemix-demo-apps/chat
-    cf push mychatapp -c 'node server.js'
+    cf push mychatapp -c 'node app.js'
 
 Of course, you can use a different name for your application instead of "mychatapp". Now, use the `cf create-service SERVICE PLAN SERVICE_NAME` command to create a mongo database service:
 
-    cf create-service mongodb 100 chatlogdb
+cf create-service mongolab sandbox chatlogdb
 
 Use the `cf bind-service APP_NAME SERVICE_NAME` command to bind the service to the application:
 

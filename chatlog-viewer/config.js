@@ -1,11 +1,13 @@
-// Parsing and reading credentials to access mongo database instance
+// Cloud Foundry environment variables
+var port = process.env.VCAP_APP_PORT || process.env.PORT || 3001;
 var services = JSON.parse(process.env.VCAP_SERVICES);
-var mongoCred = services['mongodb-2.2'][0].credentials;
+var mongoAddress = services.mongolab[0].credentials.uri;
+var mongoAccess = require('url').parse(mongoAddress);
 
 module.exports = {
   mongodb: {
-    server: mongoCred.host,
-    port: mongoCred.port,
+    server: mongoAccess.hostname,
+    port: mongoAccess.port,
 
     //autoReconnect: automatically reconnect if connection is lost
     autoReconnect: true,
@@ -25,9 +27,9 @@ module.exports = {
        * Add as many databases as you want!
        */
       {
-        database: mongoCred.db,
-        username: mongoCred.username,
-        password: mongoCred.password
+        database: mongoAccess.pathname.substring(1, mongoAccess.pathname.length),
+        username: mongoAccess.auth.split(':')[0],
+        password: mongoAccess.auth.split(':')[1]
       }
     ],
 
@@ -36,8 +38,8 @@ module.exports = {
     //  >>>>  Using an admin account allows you to view and edit all databases, and view stats
 
     //leave username and password empty if no admin account exists
-    //adminUsername: mongoCred.username,
-    //adminPassword: mongoCred.password,
+    //adminUsername: mongoAccess.username,
+    //adminPassword: mongoAccess.password,
     //whitelist: hide all databases except the ones in this list  (empty list for no whitelist)
     whitelist: [],
     //blacklist: hide databases listed in the blacklist (empty list for no blacklist)
@@ -47,7 +49,7 @@ module.exports = {
     //baseUrl: the URL that mongo express will be located at
     //Remember to add the forward slash at the end!
     baseUrl: '/',
-    port: process.env.VCAP_APP_PORT || 8081,
+    port: port,
     cookieSecret: 'cookiesecret',
     sessionSecret: 'sessionsecret'
   },
